@@ -1,0 +1,44 @@
+<h1>
+  Sign in
+</h1>
+
+<button (click)="socialSignIn('facebook')">Sign in with Facebook</button>
+<button (click)="socialSignIn('google')">Signin in with Google</button>
+<!-- <button (click)="socialSignIn('linkedin')">Signin in with Linkedin</button> -->
+
+<form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value,registerForm.valid)">
+  <div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-4"><b i18n> First Name </b></div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" formControlName="first_name" placeholder="Email">
+
+      <small *ngIf="formErrors.first_name" class="text-danger">{{ formErrors.first_name }}</small>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-4"><b i18n> Last Name </b></div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" formControlName="last_name" placeholder="Email">
+
+      <small *ngIf="formErrors.last_name" class="text-danger">{{ formErrors.last_name }}</small>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-4"><b i18n> Email </b></div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" formControlName="email" placeholder="Email">
+
+      <small *ngIf="formErrors.email" class="text-danger">{{ formErrors.email }}</small>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 10px;">
+    <div class="col-md-4"><b i18n> Password </b></div>
+    <div class="col-md-8">
+      <input type="text" class="form-control" formControlName="password" placeholder="Email">
+
+      <small *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</small>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+
+</form>

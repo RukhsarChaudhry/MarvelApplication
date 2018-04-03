@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
 
-
+import { LoginRoutes } from './login/index';
 
 
 export const routes: Routes = [
-    // ...HomeRoutes,
+    ...LoginRoutes,
     // ...DashboradRoutes,
     // ...ClientRoutes,
     {
         path: '',
-        redirectTo: '/admin',
+        redirectTo: '/login',
         pathMatch: 'full'
     },
     {

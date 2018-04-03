@@ -1,19 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
 import { routes } from './app.routes';
-
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedinLoginProvider } from "angular5-social-auth";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-
-import {
-  SocialLoginModule,
-  AuthServiceConfig,
-  GoogleLoginProvider,
-  FacebookLoginProvider,
-  LinkedinLoginProvider
-} from "angular5-social-auth";
+import { LoginComponent } from './login/login.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -39,12 +33,16 @@ export function getAuthServiceConfigs() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     SocialLoginModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    SharedModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
