@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+
+import { routes } from './app.routes';
 
 
 import { AppComponent } from './app.component';
@@ -17,7 +20,7 @@ export function getAuthServiceConfigs() {
     [
       {
         id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider("1716931428352924")
+        provider: new FacebookLoginProvider("128816901030651")
       },
       {
         id: GoogleLoginProvider.PROVIDER_ID,
@@ -40,7 +43,8 @@ export function getAuthServiceConfigs() {
   ],
   imports: [
     BrowserModule,
-    SocialLoginModule
+    SocialLoginModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     {
