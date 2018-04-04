@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { routes } from './app.routes';
+import { SharedModule } from './shared/shared.module';
 
 
 import { AppComponent } from './app.component';
@@ -44,7 +45,10 @@ export function getAuthServiceConfigs() {
   imports: [
     BrowserModule,
     SocialLoginModule,
+    SharedModule.forRoot(),
+    SharedModule.forRoot(),
     RouterModule.forRoot(routes)
+
   ],
   providers: [
     {
