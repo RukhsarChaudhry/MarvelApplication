@@ -1,0 +1,216 @@
+<h1>Create Tatto </h1>
+<div class="row" style="    margin-left: 5%;">
+  <div class="xm-col-2"></div>
+  <div class="xm-col-10">
+    <form [formGroup]="TattoForm" (ngSubmit)="createTatto(TattoForm.value,TattoForm.valid)">
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> artist_name </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="artist_name" placeholder="artist_name">
+
+          <small *ngIf="formErrors.artist_name" class="text-danger">{{ formErrors.artist_name }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n>screen_name </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="screen_name" placeholder="screen_name">
+
+          <small *ngIf="formErrors.screen_name" class="text-danger">{{ formErrors.screen_name }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> body_placement </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="body_placement" placeholder="body_placement">
+
+          <small *ngIf="formErrors.body_placement" class="text-danger">{{ formErrors.body_placement }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> category </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="category" placeholder="category">
+
+          <small *ngIf="formErrors.category" class="text-danger">{{ formErrors.category }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> color </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="color" placeholder="color">
+
+          <small *ngIf="formErrors.color" class="text-danger">{{ formErrors.color }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> description </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="description" placeholder="description">
+
+          <small *ngIf="formErrors.description" class="text-danger">{{ formErrors.description }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> image_name </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="image_name" placeholder="image_name">
+
+          <small *ngIf="formErrors.image_name" class="text-danger">{{ formErrors.image_name }}</small>
+        </div>
+      </div>
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-4"><b i18n> avatar </b></div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="avatar" placeholder="avatar">
+
+          <small *ngIf="formErrors.avatar" class="text-danger">{{ formErrors.avatar }}</small>
+        </div>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#register">Update Tatto</button>
+    </form>
+  </div>
+</div>
+
+<div class="row" style="    margin-left: 5%;">
+  <h1>My Tattos</h1>
+</div>
+<div class="row" style="    margin-left: 5%;">
+  <div *ngFor="let t of tatto">
+    <div>
+      <h4>id:</h4>
+      <p>{{t.id}}</p>
+    </div>
+    <div>
+      <h4>artist_name:</h4>
+      <p>{{t.artist_name}}</p>
+    </div>
+    <div>
+      <h4>screen_name:</h4>
+      <p>{{t.screen_name}}</p>
+    </div>
+    <div>
+      <h4>body_placement:</h4>
+      <p>{{t.body_placement}}</p>
+    </div>
+    <div>
+      <h4>category:</h4>
+      <p>{{t.category}}</p>
+    </div>
+    <div>
+      <h4>color:</h4>
+      <p>{{t.color}}</p>
+    </div>
+    <div>
+      <h4>description:</h4>
+      <p>{{t.description}}</p>
+    </div>
+    <div>
+      <h4>image_name:</h4>
+      <p>{{t.image_name}}</p>
+    </div>
+    <div>
+      <h4>avatar:</h4>
+      <p>{{t.avatar}}</p>
+    </div>
+    <button (click)="delete(t.id)">Delete</button>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="register" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update Tatto</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- <form [formGroup]="UpdateForm" (ngSubmit)="updateTato(UpdateForm.value,UpdateForm.valid)">
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> artist_name </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="artist_name" value="rukhsar">
+
+              <small *ngIf="formErrors.artist_name" class="text-danger">{{ formErrors.artist_name }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n>screen_name </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="screen_name" placeholder="screen_name">
+
+              <small *ngIf="formErrors.screen_name" class="text-danger">{{ formErrors.screen_name }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> body_placement </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="body_placement" placeholder="body_placement">
+
+              <small *ngIf="formErrors.body_placement" class="text-danger">{{ formErrors.body_placement }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> category </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="category" placeholder="category">
+
+              <small *ngIf="formErrors.category" class="text-danger">{{ formErrors.category }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> color </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="color" placeholder="color">
+
+              <small *ngIf="formErrors.color" class="text-danger">{{ formErrors.color }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> description </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="description" placeholder="description">
+
+              <small *ngIf="formErrors.description" class="text-danger">{{ formErrors.description }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> image_name </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="image_name" placeholder="image_name">
+
+              <small *ngIf="formErrors.image_name" class="text-danger">{{ formErrors.image_name }}</small>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-4"><b i18n> avatar </b></div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" formControlName="avatar" placeholder="avatar">
+
+              <small *ngIf="formErrors.avatar" class="text-danger">{{ formErrors.avatar }}</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-default">Update</button>
+          </div>
+        </form> -->
+      </div>
+
+    </div>
+  </div>
+</div>

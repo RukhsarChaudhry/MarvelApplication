@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider, LinkedinLoginProvider } from "angular5-social-auth";
@@ -8,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { TattoComponent } from './tatto/tatto.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -34,7 +36,8 @@ export function getAuthServiceConfigs() {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TattoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ export function getAuthServiceConfigs() {
     RouterModule.forRoot(routes),
     SharedModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [
     {

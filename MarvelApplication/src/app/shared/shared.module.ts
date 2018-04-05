@@ -1,10 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// import { AuthTokenService } from './services/authtoken/index';
+import { AuthTokenService } from './services/AuthService/index';
 import { RESTConnectorService } from './services/RestService/index';
-// import { SessionService } from './services/session/index';
+import { SessionService } from './services/SessionService/index';
 import { UserService } from './services/UserService/index';
+import { TattoService } from './services/TattoService/index';
 
 @NgModule({
     imports: [
@@ -17,11 +18,11 @@ export class SharedModule {
         return {
             ngModule: SharedModule,
             providers: [
-                // BlockUIService,
-                // AuthTokenService,
+                AuthTokenService,
                 RESTConnectorService,
-                // SessionService,
+                SessionService,
                 UserService,
+                TattoService
 
             ]
         };
